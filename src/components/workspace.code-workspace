@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "react",
+			"path": "..\\..\\.."
+		},
+		{
+			"name": "react-ts",
+			"path": "..\\..\\..\\..\\react-ts"
+		}
+	],
+	"settings": {}
+}
