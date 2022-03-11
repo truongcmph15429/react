@@ -1,45 +1,36 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
-  )
+const ShowInfo = (props) => {
+  return <div>Show {props.name}</div>
 }
 
+function App(){
+  const [count, setCount] = useState(0);
+  const [color, setColor] = useState("green");
+  const [myStatus, setStatus] = useState(false);
+  const [products, setProducts] = useState([{id: 1, name: "A"}, {id: 2, name: "B"}])
+
+// const changeStatus =()=>{
+//   setStatus(!myStatus)
+// }
+
+// const changeCount = ()=>{
+//   setCount();
+//   useState(count+1)
+// }
+
+  return <div>
+      
+      String: <div style={{background: color, width: 100, height: 100}}>Content</div> <br />
+      Boolean: { myStatus ? "Da ket hon" : "Chua ket hon"} <br />
+      Number: {count} <br />  <button onClick={()=>setCount(count+1)}>change Count</button>
+      <button onClick={()=>setStatus(!myStatus)}>toggled Status</button>
+      {myStatus && <div>
+        Arr: {products.map(item => item.name)}
+        </div>}
+  </div>
+}
 export default App
