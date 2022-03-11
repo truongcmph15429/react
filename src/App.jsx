@@ -13,13 +13,18 @@ function App(){
   const [myStatus, setStatus] = useState(false);
   const [products, setProducts] = useState([{id: 1, name: "A"}, {id: 2, name: "B"}])
 
+const remove=(id)=>{
+const newProduct = products.filter(item => item.id !== id);
+setProducts(newProduct)
+}
+
 // const changeStatus =()=>{
 //   setStatus(!myStatus)
 // }
 
 // const changeCount = ()=>{
 //   setCount();
-//   useState(count+1)
+//   changgeCount(count+1)
 // }
 
   return <div>
@@ -30,6 +35,7 @@ function App(){
       <button onClick={()=>setStatus(!myStatus)}>toggled Status</button>
       {myStatus && <div>
         Arr: {products.map(item => item.name)}
+        <button onClick={()=>remove(item.id)}>delete</button>
         </div>}
   </div>
 }
