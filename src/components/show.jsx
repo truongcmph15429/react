@@ -1,2 +1,10 @@
-const Show=(pops)=><h2> tuoi cua ban la: {pops.age}</h2>
+const Show = (pops) => {
+    return <ul>
+    {pops.age.map(item => 
+         <li>{item.name}</li>
+    )}
+    </ul>}
+
+
 export default Show;
+
